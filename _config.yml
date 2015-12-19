@@ -1,8 +1,12 @@
 # Site wide configuration
 
-title:            Site Title
-locale:           en_US
-url:
+title: JackyWu's Blog
+locale: zh_CN
+description: Experience Of Life
+logo: site-logo.png
+search: true
+#url: http://jacky_wu.gitcafe.io
+name: JackyWu
 
 
 # Jekyll configuration
@@ -26,13 +30,13 @@ kramdown:
 
 # Site owner
 owner:
-  name: Your Name
+  name: Jacky Wu
   avatar: bio-photo.jpg
-  bio: "Describe your self."
-  email:
-  disqus-shortname:
-  twitter: #username
-  facebook: #username
+  bio: "Software Architect in China"
+  email: jacky.wucheng@gmail.com
+  disqus-shortname: jackywu
+  twitter: wucheng
+  facebook: jackywu84
   google:
     plus: #username
     analytics:
@@ -40,9 +44,9 @@ owner:
     ad-client:
     ad-slot:
   bing-verify:
-  github: #username
+  github: jackywu
   stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
-  linkedin: #username
+  linkedin: IamJackyWu
   xing: #username
   instagram: #username
   lastfm: #username
@@ -53,7 +57,7 @@ owner:
   dribbble: #username
   youtube: #username
   soundcloud: #username
-  weibo: #username
+  weibo: object
   flickr: #username
   codepen: #username
 
