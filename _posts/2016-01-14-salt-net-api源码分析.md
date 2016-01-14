@@ -15,22 +15,39 @@ comments: true
 
 源码路径在
 
-    `https://github.com/saltstack/salt.git`中`/salt/netapi/rest_tornado`
+{% highlight python linenos %}
+
+    `https://github.com/saltstack/salt.git`中`/salt/netapi/rest_tornado` 
+
+{% endhighlight %}
+
+
 
 # 启动脚本
 
 启动命令
 
+{% highlight python linenos %}
+
     `/salt/pkg/rpm/salt-api`  or  `/etc/init.d/salt-api`
     `daemon --pidfile=/var/run/salt-api.pid --check salt-api /usr/bin/salt-api -d`
+ 
+{% endhighlight %}
 
 其他启动参数
 
+{% highlight python linenos %}
+
     # salt-api --help
+
+{% endhighlight %}
+ 
 
 # 代码入口
 
 入口代码为
+
+{% highlight python linenos %}
 
     /salt/scripts/salt-api (/usr/bin/salt-api)
     ->
@@ -50,7 +67,12 @@ comments: true
                 self.process_manager = ProcessManager()
                 self.netapi -> /salt/salt/loader.py LazyLoader : load rest_tornado模块
                 self.process_manager.run()
+
+{% endhighlight %} 
+
 进入tornado
+
+{% highlight python linenos %}
 
     /salt/salt/netapi/rest_tornado/__init__.py
         start()
@@ -67,8 +89,12 @@ comments: true
             (r"/hook(/.*)?", saltnado.WebhookSaltAPIHandler),
             ] 
             ```
+ 
+{% endhighlight %}
 
 以"/run"接口为例, 调用saltnado.RunSaltAPIHandler类
+
+{% highlight python linenos %}
 
     /salt/salt/netapi/rest_tornado/saltnado.py
 
@@ -83,6 +109,8 @@ comments: true
             ...
     -> 以调用runner模块为例
     _disbatch_runner() 给SaltMaster发命令, 执行, 返回结果.
+ 
+{% endhighlight %}
 
 
 # 参考资料
