@@ -1,7 +1,7 @@
 ---
 
 layout: post   
-title: Saltstack net-api 源码分析   
+title: Saltstack net-api 调用流程分析   
 category: articles  
 tags: [saltstack, api]  
 author: JackyWu  
@@ -21,7 +21,51 @@ comments: true
 
 {% endhighlight %}
 
+## 作用
 
+通过net-api可以调用saltstack的服务, 包括执行master上的runner模块和给minion下发命令.
+
+## 测试用例
+
+执行指令方法为
+
+1. 验证, 获取token
+2. 发送指令
+
+测试环境
+
+- salt-master为 'master'
+- salt-client为 'windows-client' , 'linux-client'
+
+curl的测试模式为
+
+```
+[root@puppet pushguidepuppet]# curl -si localhost/login
+    -H "Accept: application/json"
+    -d username='salt'
+    -d password='eAwCwXTpqoARrSxY'
+    -d eauth='pam' -v
+```
+
+正常返回消息为:
+
+```
+{"return": [{"perms": ["@runner"], "start": 1433923934.308167,
+"token": "a2b545d7b9147bb2880c6c1f533ed313", "expire": 1433967134.308168,
+"user": "salt", "eauth": "pam"}]}
+```
+
+获取其中的token作为下次接口调用的参数上传.
+
+curl测试为
+
+```
+curl -si "localhost/run"      -H "Accept: application/json"
+    -d "token=a2b545d7b9147bb2880c6c1f533ed313"
+    -v -d "client=runner" -d "fun=jobs.list_jobs"
+```
+
+整个测试不需要发布任务成功, 能调用 jobs.list_jobs 成功就行, 就可以验证api生效.
 
 # 启动脚本
 
@@ -92,26 +136,7 @@ comments: true
  
 {% endhighlight %}
 
-以"/run"接口为例, 调用saltnado.RunSaltAPIHandler类
-
-{% highlight python linenos %}
-
-    /salt/salt/netapi/rest_tornado/saltnado.py
-
-    RunSaltAPIHandler
-        post()
-    -> 
-    SaltAPIHandler
-        disbatch()
-            ...
-            chunk_ret = yield getattr(self, '_disbatch_{0}'.format(low['client']))(low)
-            ret.append(chunk_ret)
-            ...
-    -> 以调用runner模块为例
-    _disbatch_runner() 给SaltMaster发命令, 执行, 返回结果.
- 
-{% endhighlight %}
-
+根据不同的url匹配到不同的类去处理.
 
 # 参考资料
 
