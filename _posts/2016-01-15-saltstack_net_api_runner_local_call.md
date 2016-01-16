@@ -23,7 +23,7 @@ comments: true
 
 {% endhighlight %}
 
-## Runner模块调用
+## Runner 模块调用
 
 runner模块之前的调用流程可以参考 [这里](/articles/salt-net-api源码分析/)
 
@@ -141,8 +141,48 @@ runner模块的调用接口是"/run", 匹配到saltnado.RunSaltAPIHandler类处�
 1. 如果发现salt-api进程特别多, 那说明是`_proc_function`调用者特别多, 而该进程的执行时间又比较长, 所以这种情况下我们需要分析具体是调用了什么runner模块, 在这块进行优化.
 1. 如果salt-api需要水平扩展, 则需要net-api + saltmaster一块扩展.
     
+## Local 模块调用
+
+通过对`/salt/salt/netapi/rest_tornado/__init__.py`代码中的tornado url映射入口可知
+
+{% highlight python linenos %}
+
+    (r"/minions/(.*)", saltnado.MinionSaltAPIHandler),
+    (r"/minions", saltnado.MinionSaltAPIHandler), 
+
+{% endhighlight %}
+
+跟minion有关的操作都是由`saltnado.MinionSaltAPIHandler`这个类来处理的. 通过代码和[PYTHON CLIENT API][]文档我们也可以知道对"/minions/(.*)"和"/minions/"的GET方法是获取minion信息, 对"/minions"的POST方法是给相应的minion发送命令.
+
+我们看`MinionSaltAPIHandler`的`post`方法. 底层只支持`local_async`方法.
+
+{% highlight python linenos %}
+
+     for low in self.lowstate:
+         # if you didn't specify, its fine
+         if 'client' not in low:
+             low['client'] = 'local_async'
+             continue
+         # if you specified something else, we don't do that
+         if low.get('client') != 'local_async':
+             self.set_status(400)
+             self.write('We don\'t serve your kind here')
+             self.finish()
+             return
+    self.disbatch()
+    
+{% endhighlight %}
+
+接下来会通过`self.disbatch()`调用到`_disbatch_local_async`方法, 再接着从上文的`SaltClientsMixIn.__saltclients`我们知道`local_client.run_job`会被调用到. 在[SaltStack源码分析 - 任务处理机制](/articles/saltstack%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/)文章中已经解释道了, 接下来会把命令提交到ReqServer的TCP：4506端口，并且监听在EventPublisher ipc上获取结果, 得到结果后从http接口返回.
+
+小结
+
+1. 虽然发送指令是通过TCP: 4506进行, 可以跨网络提交, 但是获取结果却是要监听在 salt-master 同机器的EventPublisher ipc上, 所以在api的同步调用模式下, salt-api和salt-master是要一块部署的.
+1. 当然从代码来看, salt-api和salt-master也可以分开部署, 前提就是不同步等待EventPublisher ipc上的结果, 而是用异步的方式让master将结果写到外部存储.
 
 ## 参考
 
 - [salt net-api源代码](https://github.com/saltstack/salt.git)
-- [PYTHON CLIENT API](https://docs.saltstack.com/en/latest/ref/clients/index.html#python-api)
+- [PYTHON CLIENT API][]
+
+[PYTHON CLIENT API]: https://docs.saltstack.com/en/latest/ref/clients/index.html#python-api
