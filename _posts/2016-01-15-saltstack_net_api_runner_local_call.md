@@ -173,7 +173,7 @@ runner模块的调用接口是"/run", 匹配到saltnado.RunSaltAPIHandler类处�
     
 {% endhighlight %}
 
-接下来会通过`self.disbatch()`调用到`_disbatch_local_async`方法, 再接着从上文的`SaltClientsMixIn.__saltclients`我们知道`local_client.run_job`会被调用到. 在[SaltStack源码分析 - 任务处理机制](/articles/saltstack%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/)文章中已经解释道了, 接下来会把命令提交到ReqServer的TCP：4506端口，并且监听在EventPublisher ipc上获取结果, 得到结果后从http接口返回.
+判断client为`local_async`后, `self.disbatch()`会调用到`_disbatch_local_async`方法, 再接着从上文的`SaltClientsMixIn.__saltclients`我们知道`local_client.run_job`会被调用到. 在[SaltStack源码分析 - 任务处理机制](/articles/saltstack%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/)文章中已经解释到了, 接下来会把命令提交到ReqServer的TCP：4506端口，并且监听在EventPublisher ipc上获取结果, 得到结果后从http接口返回.
 
 小结
 
