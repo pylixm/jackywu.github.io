@@ -1,7 +1,7 @@
 ---
 
 layout: post   
-title:  saltstack监控  
+title:  SaltStack 监控调研  
 category: articles  
 tags: [saltstack,zeromq, 监控]  
 author: JackyWu  
