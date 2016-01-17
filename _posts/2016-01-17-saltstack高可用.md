@@ -12,7 +12,7 @@ comments: true
 
 # 参考资料
 
-- [HIGH AVAILABILITY FEATURES IN SALT](https://docs.saltstack.com/en/latest/topics/highavailability/index.html)
+1. [HIGH AVAILABILITY FEATURES IN SALT](https://docs.saltstack.com/en/latest/topics/highavailability/index.html)
     1. MULTIMASTER
         1. 每个master需要有相同的私钥, minion的key在每个master上单独accept.
         1. file_roots和pillar_roots里的东西, 使用外部方法在各个master上保持一致.
