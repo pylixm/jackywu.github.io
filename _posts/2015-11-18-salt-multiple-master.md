@@ -1,9 +1,9 @@
 ---
 
 layout: post   
-title: Salt Multiple Master  
+title: SaltStack Multiple Master  
 category: articles  
-tags: [saltstack]  
+tags: [saltstack, master]  
 author: JackyWu  
 comments: true  
 

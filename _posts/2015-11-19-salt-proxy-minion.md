@@ -1,9 +1,9 @@
 ---
 
 layout: post   
-title:  salt proxy minion调研  
+title:  SaltStack proxy minion调研  
 category: articles  
-tags: [saltstack, proxy]  
+tags: [saltstack, proxy, minion]  
 author: JackyWu  
 comments: true  
 

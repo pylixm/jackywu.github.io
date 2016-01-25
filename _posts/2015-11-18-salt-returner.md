@@ -1,9 +1,9 @@
 ---
 
 layout: post   
-title: Salt Returner调研  
+title: SaltStack Returner调研  
 category: articles  
-tags: [saltstack, event]  
+tags: [saltstack, event, returner]  
 author: JackyWu  
 comments: true  
 
