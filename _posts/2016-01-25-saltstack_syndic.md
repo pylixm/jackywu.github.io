@@ -50,15 +50,15 @@ CONFIGURING THE SYNDIC WITH MULTIMASTER
 
 **Master**
 
-![](master.png)
+![](/images/saltstack/master.png)
 
 **Syndic**
 
-![](syndic.png)
+![](/images/saltstack/syndic.png)
 
 **Minion**
 
-![](minion.png)
+![](/images/saltstack/minion.png)
 
 
 ## 源码分析
