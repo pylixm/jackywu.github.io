@@ -9,8 +9,6 @@ comments: true
 
 ---  
 
-# Autotools小结
-
 ## 构成
 
 GNU build system == Autotools

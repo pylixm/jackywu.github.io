@@ -8,8 +8,6 @@ comments: true
 
 ---
 
-## Puppet Agent源码分析之Agent启动和Run Rest-API的实现
-
 ###  Puppet Agent的启动
 
 > author: 燃烧 <jacky.wucheng@gmail.com>

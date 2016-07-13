@@ -9,8 +9,6 @@ comments: true
 ---
 
 
-# Zabbix_server源码分析
-
 本分析基于zabbix-2.2
 
 方法:

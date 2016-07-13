@@ -10,8 +10,6 @@ comments: true
 ---
 
 
-# 三种定义puppet node资源的方法
-
 ## 1. node.pp
 
 node.pp文件里定义parameter + include class
