@@ -22,7 +22,7 @@ image:
 **毕业院校** ：哈尔滨工程大学  
 **学历**：本科  
 **E-mail** ：jacky.wucheng@gmail.com / jacky.wucheng@icloud.com  
-**工作年数** ：约8年  
+**工作年数** ：2008年至今  
 
 
 ![](/images/weixin-pic-jackywu.jpg)
