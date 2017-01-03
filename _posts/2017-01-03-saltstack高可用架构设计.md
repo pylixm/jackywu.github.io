@@ -34,7 +34,7 @@ comments: true
 
 我们的架构中，同一个机房部署多台Master，Minion使用`master_type: failover`和  `master_shuffle=True`的方式随机连接本机房其中一个Master，并且让Minion根据`master_alive_interval` 定期检查所连Master的健康状态，发现当前Master故障后会自动连接其他Master实现Failover。
 
-该方案可以保证
+优点：该方案可以使得
 
 1. Minion跟Master之间的通信不跨机房
 2. 一个Minion同时只跟一个Master保持连接，避免了重复接收命令的问题，并且高可用
@@ -54,7 +54,11 @@ comments: true
 3. 定期（如每10s）向Controller汇报本机Master所连接的Minion的连通性状态
 
 
+优点：该方案可以使得
 
+1. 尽可能减少无用命令的下发
+2. 全局知晓Minion的连通性
+3. 通过MQ将Controller跟Proxy进行解耦，Proxy也可以水平扩展，Controller也可以
 
 ### 开发Controller
 
@@ -70,6 +74,13 @@ comments: true
 2. 将命令Publish到MQ中，等待Proxy来Subscribe
 3. 接收来自所有Proxy的Minion连通状态数据，维护在状态表里，对于精确匹配和List匹配Minion id的API调用，如果其中有失联的Minion，根据用户参数决定是拒绝请求还是接受，如接受，则在返回结果里注明失联
 
+
+
+
+优点：该方案使得
+
+1. Controller可以水平扩展
+2. Controller提供了更强的认证和审查机制
 
 
 ### 如何从日志中找出问题？
