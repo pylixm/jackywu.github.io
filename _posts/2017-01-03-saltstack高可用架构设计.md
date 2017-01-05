@@ -51,18 +51,18 @@ comments: true
    2. 如果使用list、glob、regex等方式，则对连接本Master的Minion进行匹配计算，需要至少匹配到一个
    3. 待续
 2. 将Minion返回给Master的执行结果写入中心的Database保存
-3. 定期（如每10s）向Controller汇报本机Master所连接的Minion的连通性状态
+3. 定期（如每10s）向Connector汇报本机Master所连接的Minion的连通性状态
 
 
 优点：该方案可以使得
 
 1. 尽可能减少无用命令的下发
 2. 全局知晓Minion的连通性
-3. 通过MQ将Controller跟Proxy进行解耦，Proxy也可以水平扩展，Controller也可以
+3. 通过MQ将Connector跟Proxy进行解耦，Proxy也可以水平扩展，Connector也可以
 
-### 开发Controller
+### 开发Connector
 
-对Controller的需求有
+对Connector的需求有
 
 1. 以HTTP协议接收用户请求的命令，兼容原生Salt-API的接口格式
    1. 支持高并发
@@ -79,13 +79,13 @@ comments: true
 
 优点：该方案使得
 
-1. Controller可以水平扩展
-2. Controller提供了更强的认证和审查机制
+1. Connector可以水平扩展
+2. Connector提供了更强的认证和审查机制
 
 
 ### 如何从日志中找出问题？
 
-通过Flume将Proxy日志，Master日志，Minion日志，Controller日志统一采集汇总到ES
+通过Flume将Proxy日志，Master日志，Minion日志，Connector日志统一采集汇总到ES
 
 1. 被动模式：实时将错误日志通过邮件发送给开发人员进行问题排查
 2. 主动模式：开发人员通过Kibana过滤错误日志进行问题排查
