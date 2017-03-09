@@ -12,7 +12,7 @@ image:
 
 # 个人简介
 
-我是一个互联网技术人，居住在北京，不仅对技术感兴趣，还对管理学，心理学，经济，历史等领域都非常感兴趣。你可以通过如下方式了解和联系到我。
+我是一个互联网技术人，居住在北京，不仅对技术感兴趣，还对管理学，心理学等领域都非常感兴趣。你可以通过如下方式了解和联系到我。
 
 ---
 
@@ -29,17 +29,18 @@ image:
 
 # 二、职业规划
 
-从最初的`IDC工程师`到`高级开发工程师`，到后来作为`技术主管`带团队做项目，以及目前作为`架构师`带领团队做基础平台型项目的研发，历时约8年时间的技术积累和管理经验积累，我的视野跟格局得到了很大的提升，并且注意力发生了转移，不再仅仅关注技术，而是更加关注技术带来的价值，只有产品才能够带来直接的价值。所以，我希望未来能够带领更大的团队进行产品研发。
+从最初的`IDC工程师`到`高级开发工程师`，到后来作为`技术主管`带团队做项目，以及目前作为`架构师`带领团队做基础平台型项目的研发，历时约8年时间的技术积累和管理经验积累，我的视野跟格局得到了很大的提升，并且注意力发生了转移，不再仅仅关注技术，而是更加关注技术带来的价值，只有产品才能够带来直接的用户价值。所以，我希望未来能够带领更大的团队打磨出一个这样接地气的产品来。
 
 我偏向的领域主要有
 
-1. “互联网+”对传统行业的改造
-1. 物联网
-1. 智能交通
+1. 生物云计算
+2. “互联网+”对传统行业的改造
+3. 物联网
+4. 智能交通
 
 # 三、工作经历
 
-* 2014.10-至今，2年左右，汽车之家
+* 2014.10-至今，2年多，汽车之家
 * 2009.1-2014.9，5年半，新浪
 * 2008.6-2008.12，半年，网易
 
@@ -51,9 +52,9 @@ image:
 
 * 带领团队，基于Puppet ENC架构，从零研发“配置管理系统CMS”，支持linux上的Tomcat，Nginx，LVS，Codis和windows上的IIS的自动化安装配置。可以参考 [汽车之家运维团队倾力打造的配置管理系统AutoCMS](http://mp.weixin.qq.com/s?__biz=MzA3MzYwNjQ3NA==&mid=2651296455&idx=1&sn=ae9ff5e7f3a103559d690b79dfae1962&scene=0#wechat_redirect)
 * 带领团队，基于SaltStack Execution Module二次开发，从零建设标准，开发”代码发布系统PushGuide”，接入了公司大部门核心业务线的发布工作。可以参考 [终结人肉上线，使用代码发布系统PushGuide](http://mp.weixin.qq.com/s?__biz=MzA3MzYwNjQ3NA==&mid=2651296847&idx=1&sn=9f5c03364f36032a390b0929d3b8e558#rd)
-* 带领团队，基于“生命周期管理 + 状态机”的思路，从零开发”资产管理系统CMDB“，以”强流程 + 自动化“的方法保证数据准确。可以参考 [汽车之家CMDB设计思路](http://mp.weixin.qq.com/s?__biz=MzA5NTAxNjQyMA==&mid=2654543617&idx=1&sn=f97d01906a52919cd059308933c7d6cd&scene=4#wechat_redirect)
-* 带领团队，基于OpenFalcon作为底层，自研上层产品方案，开发自有监控系统。
-* 带领团队，开发”私有云平台“，以”工单 + 状态机"的思路，整合系统平台部内部的子系统，对业务部门提供统一的服务申请入口，向PaaS转型。
+* 带领团队，基于“生命周期管理 + 状态机”的思路，从零开发”资产管理系统CMDB“，以”强流程 + 自动化“的方法保证数据准确。可以参考 [汽车之家CMDB设计思路](http://mp.weixin.qq.com/s?__biz=MzA5NTAxNjQyMA==&mid=2654543617&idx=1&sn=f97d01906a52919cd059308933c7d6cd&scene=4#wechat_redirect), [OpsWorld2016-运维的数据银行](https://du-uu.com/article/58744eb7d28f910011718bce)
+* 带领团队，基于OpenFalcon作为底层，自研上层产品方案，开发自有监控系统。可以参考 [汽车之家监控系统的第一次里程碑](http://mp.weixin.qq.com/s?src=3&timestamp=1489019640&ver=1&signature=wFVC0E6YlKsNsCYnhs8XlMdRTmt-wBU8qMW4YCsNorxAgwWNXdnKps4-QZkFe4ug1ijgICzEU2vMXhRcpH4nkuqcKc67ElcWbCNNWRwlQXLuoqx5FvO6yngBBCNOjwIejqXSEgiZo6hoyNmKgr-MHJDlPrAOkoomYF0Rzebxs7s=), [监控系统故障定位之事件关联分析的设计介绍](http://www.yunweipai.com/archives/10490.html)
+* 带领团队，开发”私有云平台“，以”工单 + 状态机"的思路，整合系统平台部内部的子系统，对业务部门提供统一的服务申请入口，向PaaS转型。可以参考 [汽车之家_私有云建设](http://www.thegitc.com/ppt2016bj/02%E4%BA%91%E4%B8%93%E5%9C%BA_%E7%9B%9B%E6%97%BA%E5%BC%BA_%E6%B1%BD%E8%BD%A6%E4%B9%8B%E5%AE%B6_%E7%A7%81%E6%9C%89%E4%BA%91%E5%BB%BA%E8%AE%BE_%E6%9C%80%E6%96%B0%E7%89%88.pdf)
 
 除了技术和日常管理事务之外，还对团队成员的非技术能力进行了培训
 
