@@ -12,8 +12,6 @@ comments: true
 
 首先我们来看一下SaltStack的通信机制架构图
 
-
-![](../images/saltstack/saltstack_event_arch.jpg)
 ![](/images/saltstack/saltstack_event_arch.jpg)
 来自 [saltstack源码分析][]
 
