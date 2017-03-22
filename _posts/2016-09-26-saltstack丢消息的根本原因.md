@@ -12,7 +12,7 @@ comments: true
 
 首先我们来看一下SaltStack的通信机制架构图
 
-TODO
+
 ![](../images/saltstack/saltstack_event_arch.jpg)
 ![](/images/saltstack/saltstack_event_arch.jpg)
 来自 [saltstack源码分析][]
@@ -101,7 +101,7 @@ ZeroMQ里，不同的socket类型，有不同的Buffer，每个Buffer都是一�
 
 在saltstack的通信模式中，有这么几处是跟HWM有关的
 
-TODO
+
 ![](../images/saltstack/hwm_component.png)
 ![](/images/saltstack/hwm_component.png)
 
@@ -110,10 +110,10 @@ saltstack官方手册的[configuration/examples](https://docs.saltstack.com/en/l
 
     $ The publisher interface ZeroMQPubServerChannel, 图中的B处，用来下发指令给Minion, 由Minion来Subscribe
     $pub_hwm: 1000
-
+    
     $ ZMQ high-water-mark for SaltEvent pub socket, 
     $salt_event_pub_hwm: 20000
-
+    
     $ ZMQ high-water-mark for EventPublisher pub socket, 图中的C处，用来发送Minion的执行结果,等待Client来Subscribe
     $event_publisher_pub_hwm: 10000
 
@@ -170,21 +170,7 @@ TODO: master接收minion结果是怎么做的？
 
 ## 参考资料
 
-[Missing Message Problem Solver]:http://zguide.zeromq.org/page:all#Missing-Message-Problem-Solver
-[saltstack源码分析]: http://jackywu.github.io/articles/saltstack%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/
-
-## Other 
-
-we can either switch to using ROUTER-DEALER (which I tend to do for most normal volume cases)
-
-像 puppet 这类系统也可以实现产品的发布管理，但这些系统的核心思想是配置保持，而 Ducter 是面向交互的，二者面对的问题域不一样。
-
-对于zeromq的这种情况，pub HWM 会丢消息，可以用redis中转缓存一下。
-http://rfyiamcool.blog.51cto.com/1030776/1322428
-
-/Users/jacky/work/codebase/saltstack/salt/salt/config/__init__.py
+- [Missing Message Problem Solver](http://zguide.zeromq.org/page:all#Missing-Message-Problem-Solver)
+- [saltstack源码分析](http://jackywu.github.io/articles/saltstack%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90)
 
 
-./doc/ref/configuration/master.rst
-
-TODO: inproc
